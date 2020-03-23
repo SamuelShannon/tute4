@@ -19,10 +19,13 @@ jobs:
       - run:
           name: run tests
           command: |
+            mkdir -p test-output
             npm run unit-tests
   pack:
     docker:
       - image: circleci/node:lts
+    environment:
+      JEST_JUNIT_OUTPUT_DIR: test-output
     environment:
       NODE_ENV: production
     steps:
