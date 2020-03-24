@@ -21,6 +21,7 @@ jobs:
           command: |
             mkdir -p test-output
             npm run unit-tests
+
 integration-tests:
     docker:
       - image: circleci/node:lts
@@ -34,7 +35,8 @@ integration-tests:
           name: run tests
           command: |
             mkdir -p test-output
-            npm run unit-tests
+            npm run integration-tests
+            
   pack:
     docker:
       - image: circleci/node:lts
@@ -57,4 +59,3 @@ workflows:
             branches:
               only:
                 - master
-            
