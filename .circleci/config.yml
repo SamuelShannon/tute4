@@ -73,10 +73,10 @@ workflows:
       - unit-tests
       - integration-tests:
           requires:
-            -ci-build
+            - ci-build
       - sast:
           requires:
-            ci-build
+            - ci-build
       - pack:
           requires:
             - ci-build
