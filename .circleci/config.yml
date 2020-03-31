@@ -22,7 +22,7 @@ jobs:
             mkdir -p test-output
             npm run unit-tests
 
-integration-tests:
+  integration-tests:
     docker:
       - image: circleci/node:lts
       - image: mongo:4.0
@@ -48,14 +48,15 @@ integration-tests:
       - store_artifacts:
           path: ./
 
-workflows:
-  build-and-packge:
-    jobs:
-      - ci-build
-      - pack:
-          requires:
-            - ci-build
-          filters:
-            branches:
-              only:
-                - master
+# workflows:
+#   build-and-packge:
+#     jobs:
+#       - ci-build
+#       - integration-tests:
+#       - pack:
+#           requires:
+#             - ci-build
+#           filters:
+#             branches:
+#               only:
+#                 - master
