@@ -47,13 +47,15 @@ jobs:
       - run:
           name: Install NodeJsScan
           command: |
-            apt update
+            sudo apt update
             sudo apt install python3-pip
             pip3 install nodejsscan
       - run:
           name: Run NodeJsScan
           command: |
             nodejsscan -d ./ -o sast-output.json
+      - store_artifacts:
+          path: sast-output.json
             
   pack:
     docker:
