@@ -70,7 +70,6 @@ workflows:
   build-and-packge:
     jobs:
       - ci-build
-      - unit-tests
       - integration-tests:
           requires:
             - ci-build
